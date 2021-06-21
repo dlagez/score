@@ -29,6 +29,10 @@ def query():
     number = str(request.form.get('number'))
     print(name, number)
     score = Score.query.filter_by(name=name, number=number).first()
+    # score = db.execute(
+    #     'select * from score where name = ? and number = ?', (name, number)
+    # ).fetchone()
+    #
     # print(score.name)
     return render_template('result.html', score=score)
 
